@@ -1,0 +1,14 @@
+{% if theme.twitter %}
+<section>
+    <h1>Latest Tweets</h1>
+    <ul id="tweets">
+        <li class="loading">Status updating&#8230;</li>
+    </ul>
+    <a href="http://twitter.com/janlay" class="twitter-follow-button" data-show-count="false">Follow @janlay</a>
+    <script type="text/javascript">
+        seajs.use('twitter', function(twitter) {
+            twitter('{{theme.twitter.user}}').show();
+        });
+    </script>
+</section>
+{% endif %}

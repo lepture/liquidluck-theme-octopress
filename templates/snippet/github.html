@@ -1,0 +1,14 @@
+{% if theme.github -%}
+<section>
+    <h1>Github Repos</h1>
+    <ul id="repos">
+        <li class="loading">Status updating&#8230;</li>
+    </ul>
+    <a href="https://github.com/{{theme.github.user}}">@{{theme.github.user}}</a> on Github
+    <script type="text/javascript">
+        seajs.use('github', function(github) {
+            github('{{theme.github.user}}').show();
+        });
+    </script>
+</section>
+{%- endif %}
