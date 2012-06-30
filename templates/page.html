@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}{{post.title}} - {{site.name}}{% endblock %}
+
+{% block entry %}
+<div>
+    <article class="hentry">
+        <header>
+            <h1 class="entry-title">
+                <a href="{{post|permalink}}">{{post.title}}</a>
+            </h1>
+        </header>
+        <div class="entry-content">
+            {{post.content}}
+        </div>
+    </article>
+</div>
+{% endblock %}

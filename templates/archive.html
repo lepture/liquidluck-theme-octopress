@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}{{pagination.title|title}} - {{site.name}}{% endblock %}
+
+{% block entry %}
+<div class="blog-index">
+    {% for item in pagination.items -%}
+    <article class="hentry">
+        <header>
+            <h1 class="entry-title">
+                <a href="{{item|permalink}}">{{item.title}}</a>
+            </h1>
+            <p class="meta">
+            <time datetime="{{item.date|xmldatetime}}">{{item.date.strftime('%b %d, %Y')}}</time>
+            </p>
+        </header>
+        <div class="entry-content">
+            {{item.content|snippet}}
+        </div>
+        <footer>
+            <a rel="full-article" href="{{item|permalink}}">Read more&#8230;</a>
+        </footer>
+    </article>
+    {%- endfor %}
+    {% if pagination.has_prev or pagination.has_next %}
+    <div class="pagination">
+        {% if pagination.has_prev %}
+        <a href="{{ content_url(pagination.root, 'page', pagination.prev_num) }}" class="prev">«Prev</a>
+        {% endif %}
+
+        <span class="current">
+            {{pagination.page}} / {{pagination.pages}}
+        </span>
+
+        {% if pagination.has_next %}
+        <a href="{{ content_url(pagination.root, 'page', pagination.next_num) }}" class="next">Next»</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

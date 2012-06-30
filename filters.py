@@ -20,3 +20,10 @@ def tagcloud_url(tag):
     from liquidluck.options import settings
     prefix = settings.site.get('prefix', '')
     return '%s#%s' % (content_url(prefix, 'tag', 'index.html'), tag)
+
+
+def snippet(content):
+    import re
+    pattern = re.compile(r'<p>(.*?)</p>')
+    match = pattern.findall(content)
+    return '<p>%s</p>' % match[0]
