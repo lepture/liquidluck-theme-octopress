@@ -18,6 +18,9 @@
         </div>
         <footer>
             <p class="meta">
+            <span class="year">
+                Post in <a href="{{post|year_url}}">{{post.date.year}}</a> •
+            </span>
             <span class="tags">
                 {% for tag in post.tags %}
                 {% if theme.tagcloud %}
