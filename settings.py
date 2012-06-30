@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-name = 'octopress'
+name = 'Octopress'
 version = '0.1'
 website = 'https://github.com/lepture/liquidluck-theme-octopress'
 author = {

@@ -25,9 +25,9 @@
         <ul class="subscription" data-subscription="rss">
             <li><a href="{{ content_url('feed.xml') }}" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
         </ul>
-        <form action="http://google.com/search" method="get">
+        <form action="http://google.com/search">
             <fieldset role="search">
-                <input type="hidden" name="q" value="site:{{site.url}}" />
+                <input type="hidden" name="q" value="site:{{site.url|clean_url}}" />
                 <input class="search" type="text" name="q" results="0" placeholder="Search"/>
             </fieldset>
         </form>
@@ -52,6 +52,7 @@
     </div>
     <footer role="contentinfo"><p>
         <span class="credit">Powered by <a href="{{system.homepage}}">{{system.name}}</a> {{system.version}}</span>
+        <span class="theme">Theme <a href="{{theme.website}}">{{theme.name}}</a> {{theme.version}} transfered by <a href="{{theme.author.website}}">{{theme.author.name}}</a></span>
         </p>
     </footer>
     <script type="text/javascript" src="{{static_url('js/octopress.js')}}"></script>
