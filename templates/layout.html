@@ -12,8 +12,18 @@
     <link href="{{static_url('css/screen.css')}}" media="screen, projection" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{static_url('css/append.css')}}" />
 
+    {% if site.feed -%}
+    <link rel="alternate" type="application/rss+xml" href="{{site.feed}}" title="{{site.name}}" />
+    {% else %}
+    <link rel="alternate" type="application/rss+xml" href="{{ content_url('feed.xml') }}" title="{{site.name}}" />
+    {%- endif %}
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="{{ static_url('js/html5shiv.js') }}"></script>
+    <![endif]-->
+
     {% include "snippet/ga.html" %}
     {% include "snippet/seajs.html" %}
+    {% block afterstyle %}{% endblock %}
 </head>
 <body>
     <header role="banner"><hgroup>
