@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DEMO</title>
+        <script type="text/javascript" src="sea.js"></script>
+    </head>
+    <body>
+        <ul id="repos">
+            <li>Loading ...</li>
+        </ul>
+        <ul id="tweets">
+            <li>Loading ...</li>
+        </ul>
+        <script type="text/javascript">
+            seajs.use(['./github', './twitter'], function(github, twitter) {
+                github('lepture').show();
+                twitter('lepture').show();
+            });
+        </script>
+    </body>
+</html>
