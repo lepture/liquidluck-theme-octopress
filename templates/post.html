@@ -2,6 +2,11 @@
 
 {% block title %}{{post.title}} - {{site.name}}{% endblock %}
 
+{% block afterstyle %}
+<link rel="canonical" href="{{post|permalink}}" />
+{% endblock %}
+
+
 {% block entry %}
 <div>
     <article class="hentry">
