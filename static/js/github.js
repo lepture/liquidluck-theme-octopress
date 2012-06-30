@@ -72,7 +72,7 @@ define(function(require, exports, module) {
         for(var i = 0; i < repos.length; i++) {
             var repo = repos[i];
             html += '<li><a href="' + repo.html_url + '">' + repo.name + '</a>';
-            html += '<span>' + prettyDate(repo.updated_at) + '</span></li>';
+            html += '<span>' + prettyDate(repo.updated_at) + '</span>';
             html += '<p>' + repo.description + '</p></li>';
         }
         target.innerHTML = html;

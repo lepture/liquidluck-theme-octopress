@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="{{static_url('css/screen.css')}}" media="screen, projection" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{static_url('css/append.css')}}" />
 
     {% include "snippet/ga.html" %}
     {% include "snippet/seajs.html" %}
@@ -38,7 +39,9 @@
     </nav>
     <div id="main">
         <div id="content">
-            {% block entry %}{% endblock %}
+            {% block entry %}
+            <div></div>
+            {% endblock %}
             {% block sidebar %}
             <aside class="sidebar">
                 {% include "snippet/github.html" %}
