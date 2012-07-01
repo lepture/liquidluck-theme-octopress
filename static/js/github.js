@@ -1,24 +1,43 @@
 define(function(require, exports, module) {
     function GitHub(user) {
         this.user = user;
+        this.base = 'https://api.github.com';
     }
-    GitHub.prototype.show = function(options) {
+    GitHub.prototype.repos = function(options) {
+        var self = this;
         options = options || {};
         var limit = options.limit || 10;
 
         var target = options.target || document.getElementById('repos');
         if (target && target.length) target = target[0];
 
-        var html = '';
-
-        var url = 'https://api.github.com/users/' + this.user;
+        var url = self.base + '/users/' + self.user;
         url += '/repos?sort=updated&callback=define';
         require.async(url, function(repos) {
             repos = repos.data.slice(0, limit);
             if (options.callback) {
                 options.callback(repos);
             } else {
-                showRepoFeed(target, repos);
+                showRepos(target, repos);
+            }
+        });
+    }
+    GitHub.prototype.commits = function(options) {
+        var self = this;
+        options = options || {};
+        var repo = options.repo;
+        var limit = options.limit || 10;
+
+        var target = options.target || document.getElementById('commits');
+        if (target && target.length) target = target[0];
+        var url = self.base + '/repos/' + self.user + '/' + repo;
+        url += '/commits?callback=define';
+        require.async(url, function(commits) {
+            commits = commits.data.slice(0, limit);
+            if (options.callback) {
+                options.callback(commits);
+            } else {
+                showCommits(target, commits);
             }
         });
     }
@@ -67,13 +86,27 @@ define(function(require, exports, module) {
             day_diff > 7 && Math.ceil(day_diff / 7) + say.weeks_ago;
     }
 
-    function showRepoFeed(target, repos) {
+    function showRepos(target, repos) {
         var html = '';
         for(var i = 0; i < repos.length; i++) {
             var repo = repos[i];
             html += '<li><a href="' + repo.html_url + '">' + repo.name + '</a>';
             html += '<span>' + prettyDate(repo.updated_at) + '</span>';
             html += '<p>' + repo.description + '</p></li>';
+        }
+        target.innerHTML = html;
+    }
+
+    function showCommits(target, commits) {
+        var html = '';
+        for(var i = 0; i < commits.length; i++) {
+            var commit = commits[i].commit;
+            var url = commit.url.replace(/api\./g, '').
+                replace(/repos\//g, '').
+                replace(/git\/commits/g, 'commit');
+            html += '<li><a href="' + url + '">';
+            html += prettyDate(commit.committer.date) + '</a>';
+            html += '<p>' + commit.message + '</p></li>';
         }
         target.innerHTML = html;
     }

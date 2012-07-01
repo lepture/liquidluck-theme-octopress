@@ -7,7 +7,7 @@
     <a href="https://github.com/{{theme.github.user}}">@{{theme.github.user}}</a> on Github
     <script type="text/javascript">
         seajs.use('github', function(github) {
-            github('{{theme.github.user}}').show({limit: {{theme.github.limit}}});
+            github('{{theme.github.user}}').repos({limit: {{theme.github.limit}}});
         });
     </script>
 </section>
