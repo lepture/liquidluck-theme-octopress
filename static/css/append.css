@@ -7,6 +7,33 @@
     text-shadow: white 0 1px;
     font-size: .7em;
 }
+.wrapper {
+    padding: 27px 0;
+}
+.wrapper .tagcloud, .wrapper .entry-list {
+    padding: 0 55px;
+}
+.tagcloud a {
+    display: inline-block;
+    margin: .2em .4em;
+}
+.entry-list {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+.entry-list li {
+    margin-left: 0;
+}
+.entry-item-title {
+    margin-top: 24px;
+}
+.entry-item a {
+    margin: .2em 1em;
+}
+.entry-item-title a {
+    margin-left: 0;
+}
 
 .highlight pre {
     font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace !important;
