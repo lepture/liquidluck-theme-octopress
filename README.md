@@ -5,10 +5,15 @@ This is the latest version of the default theme for Felix Felicis.
 
 ## Installation
 
+Require Felix Felicis 3.0+
+
+
 ### Install with liquidluck
 
 ```
 $ liquidluck install octopress
+$ liquidluck install lepture/octopress
+$ liquidluck install lepture/octopress -g
 ```
 
 ### Install by yourself
@@ -33,41 +38,43 @@ $ git submodule add git://github.com/lepture/liquidluck-theme-octopress.git _the
 
 ## Configuration
 
-Edit your settings.py, change your theme to:
-
-```python
-theme = 'octopress'
-```
+Edit your settings.py, change your theme to ``octopress``.
 
 
 ## Customize
 
-You can customize your theme with ``theme_variables``.
+You can customize your theme with ``theme.vars``.
 
 + Change Navigation (example)
 
 ```python
-theme_variables = {
-    'navigation': [
-        ('Home', '/'),
-        ('Life', '/life/'),
-        ('Work', '/work/'),
-    ],
+theme = {
+    'vars': {
+        'navigation': [
+            {'name': 'Home', 'link': '/'},
+            {'name': 'Life', 'link': '/life/'},
+            {'name': 'Work', 'link': '/work/'},
+        ],
+    }
 }
 ```
 
 + Google Analytics
 
 ```python
-theme_variables = {
-    'analytics': 'UA-xxxx',
+theme = {
+    'vars': {
+        'analytics': 'UA-xxxx',
+    }
 }
 ```
 
 + Disqus Comment Support
 
 ```python
-theme_variables = {
-    'disqus': 'your-disqus-shortname',
+theme = {
+    'vars': {
+        'disqus': 'your-disqus-shortname',
+    }
 }
 ```

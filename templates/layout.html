@@ -42,8 +42,8 @@
             </fieldset>
         </form>
         <ul class="main-navigation">
-            {% for name, link in theme.navigation -%}
-            <li><a href="{{link}}">{{name}}</a></li>
+            {% for item in theme.navigation -%}
+            <li><a href="{{item.link}}">{{item.name}}</a></li>
             {%- endfor %}
         </ul>
     </nav>

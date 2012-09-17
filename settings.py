@@ -1,19 +1,17 @@
 #!/usr/bin/env python
 
 name = 'Octopress'
-version = '0.1'
+version = '1.0'
 website = 'https://github.com/lepture/liquidluck-theme-octopress'
 author = {
     'name': 'Hsiaoming Yang',
     'website': 'http://lepture.com',
 }
 
-
 show_author = False
-tagcloud = False
 navigation = [
-    ('Home', '/'),
-    ('About', '/about.html'),
+    {'name': 'Home', 'link': '/'},
+    {'name': 'About', 'link': '/about.html'},
 ]
 
 lang = 'en'
