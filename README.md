@@ -22,7 +22,7 @@ Git clone this repo, and place it in your blog:
 
 ```
 your_blog/
-    settings.py
+    settings.yml
     content/
     _themes/
         octopress/
@@ -75,6 +75,23 @@ theme = {
 theme = {
     'vars': {
         'disqus': 'your-disqus-shortname',
+    }
+}
+```
+
++ Twitter and GitHub
+
+```python
+theme = {
+    'vars': {
+        'twitter': {
+            'user': 'lepture',
+            'limit': 5,
+        },
+        'github': {
+            'user': 'lepture',
+            'limit': 5,
+        }
     }
 }
 ```

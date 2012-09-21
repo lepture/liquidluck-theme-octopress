@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 name = 'Octopress'
-version = '1.0'
+version = '2.0'
 website = 'https://github.com/lepture/liquidluck-theme-octopress'
 author = {
     'name': 'Hsiaoming Yang',
@@ -16,12 +16,12 @@ navigation = [
 
 lang = 'en'
 twitter = {
-    'user': 'lepture',
-    'limit': 5,
+    #'user': 'lepture',
+    #'limit': 5,
 }
 github = {
-    'user': 'lepture',
-    'limit': 5,
+    #'user': 'lepture',
+    #'limit': 5,
 }
 disqus = None
 analytics = None

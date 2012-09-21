@@ -1,6 +1,9 @@
 @import url(//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic);
 @import url(//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic);
 
+#disqus_thread {
+    padding: 20px 55px 0;
+}
 #repos span {
     color: #a4a4a4;
     float: right;
