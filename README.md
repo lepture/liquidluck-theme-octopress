@@ -7,6 +7,10 @@ This is the latest version of the default theme for Felix Felicis.
 
 Require Felix Felicis 3.0+
 
+```
+$ sudo pip install -U liquidluck
+```
+
 
 ### Install with liquidluck
 
